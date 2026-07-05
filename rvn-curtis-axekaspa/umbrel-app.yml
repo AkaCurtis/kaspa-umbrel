@@ -1,0 +1,25 @@
+manifestVersion: 1
+id: rvn-curtis-axekaspa
+category: bitcoin
+name: AxeKAS
+version: "0.1.0"
+tagline: Self-hosted Kaspa node dashboard
+description: >-
+  Run a Kaspa full node dashboard on umbrelOS.
+
+
+  Includes node sync status, block DAG stats, peer count, network difficulty,
+  and live charts — all from a browser UI.
+releaseNotes: ""
+developer: AxeSuite
+website: https://github.com/AkaCurtis/axekaspa
+dependencies: []
+repo: https://github.com/AkaCurtis/axekaspa
+support: https://github.com/AkaCurtis/axekaspa/issues
+port: 4830
+gallery: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+submitter: AkaCurtis
+submission: ""

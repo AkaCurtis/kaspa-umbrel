@@ -1,0 +1,39 @@
+services:
+  app_proxy:
+    environment:
+      APP_HOST: rvn-curtis-axekaspa_server_1
+      APP_PORT: 3000
+
+  kaspa:
+    image: kaspanet/rusty-kaspad:latest
+    restart: unless-stopped
+    command:
+      - sh
+      - -ec
+      - |
+        exec kaspad \
+          --utxoindex \
+          --rpclisten=0.0.0.0:16110 \
+          --rpclisten-borsh=0.0.0.0:17110 \
+          --rpclisten-json=0.0.0.0:18110 \
+          --listen=0.0.0.0:16111
+    ports:
+      - 16110:16110/tcp
+      - 16111:16111/tcp
+      - 17110:17110/tcp
+      - 18110:18110/tcp
+    volumes:
+      - ${APP_DATA_DIR}/data:/app/data
+
+  server:
+    image: ghcr.io/akacurtis/axekaspa:v0.1.0
+    restart: on-failure
+    environment:
+      PORT: 3000
+      APP_CHANNEL: STABLE
+      APP_VERSION: "0.1.0"
+      STATIC_DIR: /app/static
+      STATE_DIR: /data/ui/state
+      KASPA_JSON_RPC_URL: ws://rvn-curtis-axekaspa_kaspa_1:18110
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
