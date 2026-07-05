@@ -26,7 +26,7 @@ services:
       - ${APP_DATA_DIR}/data:/app/data
 
   server:
-    image: ghcr.io/akacurtis/axekaspa:v0.1.0
+    image: ghcr.io/akacurtis/axekaspa:latest
     restart: on-failure
     environment:
       PORT: 3000
