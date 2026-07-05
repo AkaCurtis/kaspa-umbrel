@@ -5,7 +5,7 @@ services:
       APP_PORT: 3000
 
   server:
-    image: ghcr.io/AkaCurtis/axervn-pool:v0.1.1
+    image: ghcr.io/akacurtis/axervn-pool:v0.1.1
     restart: on-failure
     environment:
       PORT: 3000
