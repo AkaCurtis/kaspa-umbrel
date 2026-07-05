@@ -4,6 +4,20 @@ services:
       APP_HOST: rvn-curtis-axervn-pool_server_1
       APP_PORT: 3000
 
+  ravencoin:
+    image: joecryptotoo/ravencoin:latest
+    restart: on-failure
+    command:
+      - sh
+      - -ec
+      - |
+        while [ ! -f /data/ravencoin/ravencoin.conf ]; do
+          sleep 2
+        done
+        exec ravend -datadir=/data/ravencoin -conf=/data/ravencoin/ravencoin.conf -printtoconsole
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+
   server:
     image: ghcr.io/akacurtis/axervn-pool:v0.1.1
     restart: on-failure
