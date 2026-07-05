@@ -1,7 +1,7 @@
 services:
   app_proxy:
     environment:
-      APP_HOST: rvn-curtis-axekaspa_server_1
+      APP_HOST: kas-curtis-axekaspa_server_1
       APP_PORT: 3000
 
   kaspa:
@@ -34,6 +34,6 @@ services:
       APP_VERSION: "0.1.0"
       STATIC_DIR: /app/static
       STATE_DIR: /data/ui/state
-      KASPA_JSON_RPC_URL: ws://rvn-curtis-axekaspa_kaspa_1:18110
+      KASPA_JSON_RPC_URL: ws://kas-curtis-axekaspa_kaspa_1:18110
     volumes:
       - ${APP_DATA_DIR}/data:/data
